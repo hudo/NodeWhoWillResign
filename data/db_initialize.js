@@ -27,10 +27,20 @@ function adminExists() {
     });
 }
 
+function employeeExists(name) {
+    return q.Promise(function(resolve, reject) {
+        db.serialize(function() {
+            db.get("select count(*) as count from employees where Name = ?", name, function(err, exists) {
+                if(err) return reject(err);
+                resolve(exists.count > 0);
+            });
+        });
+    });
+}
+
 exports.initialize = function() {
     db.serialize(function() {
         db.run("CREATE TABLE IF NOT EXISTS Users (Id INTEGER PRIMARY KEY AUTOINCREMENT, Username TEXT, Password TEXT, Salt TEXT, IsAdmin INTEGER default 0)");
-
         adminExists().then(function(exists) {
             if (exists) return;
             return getHash('jd', 'admin');
@@ -38,6 +48,19 @@ exports.initialize = function() {
             db.run("insert into users(Username, Password, Salt, IsAdmin) values('jd', ?, ?, 1)", pwd.hash, pwd.salt, function(err){
                 if(err) throw err;
             });
+        });
+        
+        db.run("CREATE TABLE IF NOT EXISTS Employees (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Quote REAL DEFAULT 0, TotalBet INTEGER DEFAULT 0)");
+        
+        var employees = ['Lyall', 'Vitali', 'Filippo', 'Radek', 'Paul', 'Gennaro', 'Sean', 'Hudo', 'Bogdan', 'Artur', 'Louise ?', 'Louise H.', 'Denis'];
+        
+        employees.forEach(function(name){
+            employeeExists(name).then(function(exists){
+                if (exists) return;
+                db.run("insert into employees(Name, Quote) values(?, 250)", name, function(err){
+                    if(err) throw err;
+                });
+            });    
         });
     });
 };
