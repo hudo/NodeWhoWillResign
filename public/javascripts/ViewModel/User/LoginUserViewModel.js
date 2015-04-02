@@ -14,6 +14,7 @@ function LoginUserViewModel() {
             console.log(data);
             window.localStorage.setItem("token", data.token);
             window.localStorage.setItem("username", data.username);
+            window.localStorage.setItem("isAdmin", data.isAdmin);
             location.href = "/";
         }).error(function(data){
             self.password('');

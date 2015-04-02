@@ -35,7 +35,7 @@ router.post('/create', function(req, res) {
 router.post('/login', function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
     if (err) { return next(err) }
-    if (!user) {
+    if (!user.isAuthenticated) {
         return res.status(401).json({ error: 'Username or Password invalid' });
     }
 
@@ -43,10 +43,11 @@ router.post('/login', function(req, res, next) {
     console.log(expires);
     var token = jwt.encode({
         username: req.body.username,
-        expires: expires
+        expires: expires,
+        isAdmin: user.isAdmin
     }, configuration.securityPassPhrase);
     
-    res.json({ token : token, expires: expires, username: req.body.username });
+    res.json({ token : token, expires: expires, username: req.body.username, isAdmin: user.isAdmin });
 
   })(req, res, next);
 });

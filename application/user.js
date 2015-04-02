@@ -47,17 +47,17 @@ module.exports = function user(db) {
         return q.Promise(function(resolve, reject, notify) {
             
             getSalt(username)
-            .then(function(salt) {
+            .then(function(user) {
                 var deferred = q.defer();
-                hash(password, salt, function(err, hash) {
+                hash(password, user.salt, function(err, hash) {
                     if (err) return deferred.reject(err);
-                    deferred.resolve(hash);
+                    deferred.resolve({hash: hash, isAdmin: user.isAdmin});
                 });
                 return deferred.promise;
             })
-            .then(function(hash){
-                checkHash(username, hash).then(function(passwordValidated){
-                   if(passwordValidated) return resolve(true);
+            .then(function(user){
+                checkHash(username, user.hash).then(function(passwordValidated){
+                   if(passwordValidated) return resolve({isValid: true, isAdmin: user.isAdmin});
                    reject("Invalid password");
                 });
             }).fail(function(failure){
@@ -80,10 +80,10 @@ module.exports = function user(db) {
     function getSalt(username) {
         return q.Promise(function(resolve, reject){
             db.serialize(function() {
-                db.get("select salt from users where username = ?", username, function(err, row) {
+                db.get("select salt, isAdmin from users where username = ?", username, function(err, row) {
                     if (err) return reject(err);
                     if(row == undefined) return reject("user not found");
-                    resolve(row.Salt);
+                    resolve({ salt: row.Salt, isAdmin: row.IsAdmin});
                 });
             });    
         });
