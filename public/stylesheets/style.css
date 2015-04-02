@@ -1,0 +1,44 @@
+/* Controls */
+
+.text-medium {
+  width: 200px !important;
+}
+
+/* Text */
+
+.header {
+  font-size: 22px;
+  color: white;
+  padding-top: 12px;
+}
+
+.page-title{
+  height: 30px;
+  font-size: 20px;
+  background-color: #FFCC99;
+  text-align: center;
+  border-top: 1px;
+  border-bottom: 1px;
+  margin-bottom: 10px;
+}
+
+/* Colours */
+
+.white {
+  color: white;
+}
+
+/* Structure */
+
+.center {  
+  width: 300px;
+  margin-right: auto;  
+  margin-left: auto;  
+} 
+
+/* Bootstrap extensions */
+
+.navbar-nav>li>label {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}

@@ -1,0 +1,24 @@
+extends layout
+
+block head
+  script(src='/javascripts/ViewModel/User/CreateUserViewModel.js')
+
+block content
+  nav.navbar.navbar-inverse
+    div.navbar-header
+      label.header Who Will Resign
+    div.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li
+          a(href="/") Home
+  div.page-title User Registration
+  div.content
+    div.center
+      div.form-group.has-success
+        label.control-label Username
+        input.form-control.text-medium(type="text", data-bind="value: username")
+      div.form-group.has-success
+        label.control-label Password
+        input.form-control.text-medium(type="text", data-bind="value: password")
+      button.btn.btn-primary(data-bind="click: Register") Register
+        
