@@ -3,6 +3,7 @@ var configuration = require("../../application/configuration");
 var moment = require("moment");
 var jwt = require("jwt-simple");
 var verifyAdminMiddleware = require("../../application/middlewares/verifyAdmin");
+var sinon = require("sinon");
 
 
 describe("verifyAdmin", function(){
@@ -28,18 +29,13 @@ describe("verifyAdmin", function(){
             };
             var res = {};
             
-            var nextHasBeenCalled = false;
+            var next = sinon.spy();
             
             //Act
-            verifyAdminMiddleware(req, res, function(){
-                nextHasBeenCalled = true;
-            });
+            verifyAdminMiddleware(req, res, next);
             
             //Assert
-            nextHasBeenCalled.should.be.exactly(test.expected);
+            next.called.should.be.exactly(test.expected);
         });    
     });
-    
-    
-       
 });
