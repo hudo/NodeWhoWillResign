@@ -13,6 +13,8 @@ passport.use(authentication);
 //Routes
 var routes = require('./routes/index');
 var user = require('./routes/user');
+var employee = require('./routes/employee');
+
 
 var app = express();
 
@@ -35,6 +37,7 @@ app.use(function(req, res, next) {
 
 app.use('/', routes);
 app.use('/user', user);
+app.use('/employee', employee);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
