@@ -1,5 +1,6 @@
 function LoginUserViewModel() {
     var self = this;
+    this.navigation = ko.observable(new AuthAndNavigationObject("Login"));
 
     this.username = ko.observable();
     this.password = ko.observable();
