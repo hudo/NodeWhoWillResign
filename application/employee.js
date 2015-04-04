@@ -1,16 +1,23 @@
-var sequelize = require("sequelize");
-var Employee = require("../model/Employee");
-var orm = require("../data/orm");
+var models = require("../models");
+var Employee = models.Employee;
+var q = require("q");
 
 module.exports = function() {
     var employeeService = {};
-    
-    employeeService.getAll = function(){
-        Employee.findAll({order: 'name ASC'}).then(function(data){
-            return data;
-        });
-    }
-    
-    return employeeService;
-}
 
+    employeeService.getAll = function() {
+        return q.Promise(function(resolve, reject) {
+            Employee.findAll({
+                order: 'name ASC'
+            }, {
+                raw: true
+            }).then(function(data) {
+                resolve(data);
+            }).error(function(err){
+                reject(err);
+            });
+        });
+    };
+
+    return employeeService;
+};

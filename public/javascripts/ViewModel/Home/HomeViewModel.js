@@ -5,7 +5,7 @@ function HomeViewModel(){
     
     this.Load = function(){
         $.get('https://whowillresign-jd78.c9.io/employee/', function(data){
-            console.log(data);
+            console.log(JSON.parse(data));
         }).fail(function(err){
             console.log(err);
         });
