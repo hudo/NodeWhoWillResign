@@ -49,18 +49,5 @@ exports.initialize = function() {
                 if(err) throw err;
             });
         });
-        
-        db.run("CREATE TABLE IF NOT EXISTS Employees (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, quote FLOAT DEFAULT 0, totalBet INTEGER DEFAULT 0, createdAt DATETIME Default CURRENT_TIMESTAMP, updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP)");
-        
-        var employees = ['Lyall', 'Vitali', 'Filippo', 'Radek', 'Paul', 'Gennaro', 'Sean', 'Hudo', 'Bogdan', 'Artur', 'Louise ?', 'Louise H.', 'Denis'];
-        
-        employees.forEach(function(name){
-            employeeExists(name).then(function(exists){
-                if (exists) return;
-                db.run("insert into employees(Name, Quote) values(?, 250)", name, function(err){
-                    if(err) throw err;
-                });
-            });    
-        });
     });
 };
