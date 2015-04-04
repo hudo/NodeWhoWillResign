@@ -1,9 +1,8 @@
 var Sequelize = require("sequelize");
 
-
-var sequelize = new Sequelize('whowillresign', null, null, {
+var sequelize = new Sequelize(null, null, null, {
   dialect: 'sqlite',
-  storage: 'whowillresign'
+  storage: __dirname + '/whowillresign'
 });
 
 module.exports = sequelize;

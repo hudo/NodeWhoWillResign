@@ -50,7 +50,7 @@ exports.initialize = function() {
             });
         });
         
-        db.run("CREATE TABLE IF NOT EXISTS Employees (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Quote REAL DEFAULT 0, TotalBet INTEGER DEFAULT 0)");
+        db.run("CREATE TABLE IF NOT EXISTS Employees (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Quote FLOAT DEFAULT 0, TotalBet INTEGER DEFAULT 0, CreatedAt DATETIME Default CURRENT_TIMESTAMP, UpdatedAt DATETIME DEFAULT CURRENT_TIMESTAMP)");
         
         var employees = ['Lyall', 'Vitali', 'Filippo', 'Radek', 'Paul', 'Gennaro', 'Sean', 'Hudo', 'Bogdan', 'Artur', 'Louise ?', 'Louise H.', 'Denis'];
         
