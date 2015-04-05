@@ -70,8 +70,4 @@ app.use(function(err, req, res, next) {
   });
 });
 
-//db initializer
-var db = require("./data/db_initialize")
-db.initialize();
-
 module.exports = app;

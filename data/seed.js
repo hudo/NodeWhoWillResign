@@ -1,5 +1,6 @@
 var q = require("q");
 var employeeService = require("../application/employee");
+var userService = require("../application/user");
 var models = require("../models");
 
 var promises = [];
@@ -22,9 +23,25 @@ function employeesSeed(){
     });
 }
 
+function userSeed(){
+    userService().exists("jd").then(function(exists){
+            if(exists) return;
+            return userService().getHash("jd", "admin");
+        }).then(function(hash){
+            var user = models.User.build({
+               username: "jd",
+               password: hash.hash,
+               salt: hash.salt,
+               isAdmin: true
+            });
+            promises.push(user.save());
+        });
+}
+
 module.exports = function(){
     return q.Promise(function(resolve, reject){
         employeesSeed();
+        userSeed();
         
         q.all(promises).then(function(){
             resolve(true);

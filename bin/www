@@ -11,8 +11,12 @@ var cluster = require("cluster");
 var os = require("os");
 var configuration = require("../application/configuration");
 var models = require("../models");
+var seed = require("../data/seed");
+
 models.sequelize.sync().then(function () {
   console.log("Database initialized successfully");
+  seed();
+  console.log("seed completed");
 });
 
 /**

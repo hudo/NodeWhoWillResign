@@ -18,6 +18,19 @@ module.exports = function() {
             });
         });
     };
+    
+    employeeService.get = function(criteria) {
+        return q.Promise(function(resolve, reject) {
+            Employee.findAll(criteria, {
+                raw: true
+            }).then(function(data) {
+                if(data.length === 0) return resolve(null);
+                resolve(data);
+            }).error(function(err){
+                reject(err);
+            });
+        });
+    };
 
     return employeeService;
 };
