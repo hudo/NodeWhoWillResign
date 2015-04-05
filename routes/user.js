@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var user = require("../application/user");
-var db = require("../application/db");
+var userService = require("../application/user");
 var passport = require('passport');
 var jwt = require("jwt-simple")
 var configuration = require("../application/configuration")
@@ -17,7 +16,7 @@ router.get('/login', function(req, res, next) {
 
 router.post('/create', function(req, res) {
     console.log(req.body);
-    user(db).create(req.body.username, req.body.password)
+    userService().create(req.body.username, req.body.password)
         .then(function(result, err) {
             if(err) {
                 console.log(err);
