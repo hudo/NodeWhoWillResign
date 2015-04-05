@@ -2,6 +2,7 @@ function HomeViewModel(){
     var self = this;
     
     this.navigation = ko.observable(new AuthAndNavigationObject("Home"));
+    this.content = ko.observable();
     
     this.Load = function(){
         $.get('https://whowillresign-jd78.c9.io/employee/', function(data){
@@ -10,6 +11,13 @@ function HomeViewModel(){
             console.log(err);
         });
     };
+    
+    this.LoginContent = function(){
+        $.get('https://whowillresign-jd78.c9.io/user/login', function(html){
+           self.content(html);
+           self.navigation(new AuthAndNavigationObject("Login"));
+        });
+    }
 }
 
 var viewModel;

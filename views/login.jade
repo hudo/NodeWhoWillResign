@@ -1,16 +1,12 @@
-extends layout
+script(src='/javascripts/ViewModel/User/LoginUserViewModel.js')
 
-block head
-  script(src='/javascripts/ViewModel/User/LoginUserViewModel.js')
-
-block content
-  div.content
-    div.center
-      div.form-group.has-success
-        label.control-label Username
-        input.form-control.text-medium(type="text", data-bind="value: username")
-      div.form-group.has-success
-        label.control-label Password
-        input.form-control.text-medium(type="text", data-bind="value: password")
-      button.btn.btn-primary(data-bind="click: Login") LogIn
-        
+div.content(id="loginTemplate")
+  div.center
+    div.form-group.has-success
+      label.control-label Username
+      input.form-control.text-medium(type="text", data-bind="value: username")
+    div.form-group.has-success
+      label.control-label Password
+      input.form-control.text-medium(type="text", data-bind="value: password")
+    button.btn.btn-primary(data-bind="click: Login") LogIn
+      

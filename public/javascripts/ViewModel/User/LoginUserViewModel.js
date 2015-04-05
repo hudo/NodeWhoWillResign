@@ -1,7 +1,6 @@
 function LoginUserViewModel() {
     var self = this;
-    this.navigation = ko.observable(new AuthAndNavigationObject("Login"));
-
+    
     this.username = ko.observable();
     this.password = ko.observable();
 
@@ -16,7 +15,9 @@ function LoginUserViewModel() {
             window.localStorage.setItem("token", data.token);
             window.localStorage.setItem("username", data.username);
             window.localStorage.setItem("isAdmin", data.isAdmin);
-            location.href = "/";
+            //location.href = "/";
+            viewModel.navigation(new AuthAndNavigationObject("Home"));
+            viewModel.content("");
         }).error(function(data){
             self.password('');
             Messi.alert(data.responseJSON.error);
@@ -24,9 +25,8 @@ function LoginUserViewModel() {
     };
 }
 
-var viewModel;
+var loginUserViewModel = new LoginUserViewModel();
 
-$(document).ready(function() {
-    viewModel = new LoginUserViewModel();
-    ko.applyBindings(viewModel);
+$(document).ready(function(){
+   ko.applyBindings(loginUserViewModel, $('#loginTemplate')[0]); 
 });
