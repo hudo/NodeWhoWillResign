@@ -1,9 +1,12 @@
 extends layout
 
 block head
-  script(src='/javascripts/ViewModel/Home/HomeViewModel.js')
+  //script(data-main="/javascripts/ViewModel/Home/HomeViewModel.js", src='/bower/requirejs/require.js')
+  script(src='/bower/requirejs/require.js')
+  script.
+    require(['viewModel'])
 
 block content
     div(data-bind="html: content")
-        
+    login 
           
