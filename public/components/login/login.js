@@ -1,4 +1,4 @@
-define(["jquery", "knockout", "messi", "text!./login.html"], function($, ko, messi, loginTemplate) {
+define(["jquery", "knockout", "knockout-postbox", "messi", "text!./login.html"], function($, ko, postbox, messi, loginTemplate) {
 
     function loginUserViewModel() {
         var self = this;

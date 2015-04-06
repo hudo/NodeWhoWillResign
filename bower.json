@@ -14,6 +14,7 @@
     "knockout-projections": "~1.1.0",
     "crossroads": "~0.12.0",
     "hasher": "~1.2.0",
-    "requirejs-text": "~2.0.14"
+    "requirejs-text": "~2.0.14",
+    "knockout-postbox": "~0.5.0"
   }
 }

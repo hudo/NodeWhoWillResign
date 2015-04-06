@@ -1,4 +1,4 @@
-define(["jquery", "knockout", "crossroads", "hasher"], function($, ko, crossroads, hasher) {
+define(["jquery", "knockout", 'knockout-postbox', "crossroads", "hasher"], function($, ko, postbox, crossroads, hasher) {
 
     return new Router({
         routes: [
@@ -23,6 +23,7 @@ define(["jquery", "knockout", "crossroads", "hasher"], function($, ko, crossroad
     function activateCrossroads() {
         function parseHash(newHash, oldHash) {
             crossroads.parse(newHash);
+            ko.postbox.publish("refreshNavbar", "refresh");
         }
         crossroads.normalizeFn = crossroads.NORM_AS_OBJECT;
 

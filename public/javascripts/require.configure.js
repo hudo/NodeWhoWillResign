@@ -8,14 +8,11 @@ var require = {
         "messi": "bower/messi/messi",
         "crossroads": "bower/crossroads/dist/crossroads",
         "knockout-projections": "bower/knockout-projections/dist/knockout-projections",
+        "knockout-postbox": "bower/knockout-postbox/build/knockout-postbox",
         "signals": "bower/js-signals/dist/signals",
         "hasher": "bower/hasher/dist/js/hasher",
         "text": "bower/requirejs-text/text",
         "router": "javascripts/router"
-        //"viewModel": "javascripts/ViewModel/Home/HomeViewModel",
-        //"authAndNavigation": "javascripts/ViewModel/AuthAndNavigationObject",
-        //"login": "javascripts/ViewModel/User/LoginUserViewModel",
-        //"register": "javascripts/ViewModel/User/RegisterUserViewModel"
     },
     shim: {
         "bootstrap": {
