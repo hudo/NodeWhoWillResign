@@ -1,8 +1,7 @@
-define(["jquery", "knockout", "knockout-postbox", "messi", "text!./login.html"], function($, ko, postbox, messi, loginTemplate) {
+define(["jquery", "knockout", "text!./login.html", "knockout-postbox", "messi"], function($, ko, loginTemplate) {
 
     function loginUserViewModel() {
         var self = this;
-        
         this.username = ko.observable();
         this.password = ko.observable();
     
@@ -20,7 +19,7 @@ define(["jquery", "knockout", "knockout-postbox", "messi", "text!./login.html"],
                 location.href = "#";
             }).error(function(data){
                 self.password('');
-                messi.alert(data.responseJSON.error);
+                Messi.alert(data.responseJSON.error);
             });
         };
         
