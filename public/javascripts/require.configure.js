@@ -9,6 +9,7 @@ var require = {
         "crossroads": "bower/crossroads/dist/crossroads",
         "knockout-projections": "bower/knockout-projections/dist/knockout-projections",
         "knockout-postbox": "bower/knockout-postbox/build/knockout-postbox",
+        "knockout-validation": "bower/knockout-validation/dist/knockout.validation",
         "signals": "bower/js-signals/dist/signals",
         "hasher": "bower/hasher/dist/js/hasher",
         "text": "bower/requirejs-text/text",

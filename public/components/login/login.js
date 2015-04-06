@@ -1,11 +1,16 @@
-define(["jquery", "knockout", "text!./login.html", "knockout-postbox", "messi"], function($, ko, loginTemplate) {
+define(["jquery", "knockout", "text!./login.html", "knockout-postbox", "messi", "knockout-validation"], function($, ko, loginTemplate) {
 
     function loginUserViewModel() {
         var self = this;
-        this.username = ko.observable();
-        this.password = ko.observable();
+        this.username = ko.observable().extend({ required: true });
+        this.password = ko.observable().extend({ required: true });
     
         this.Login = function() {
+            if (self.errors().length > 0) {
+              self.errors.showAllMessages();
+              return;
+            }  
+            
             $.ajax({
                 type: 'POST',
                 data: ko.toJSON(self),
@@ -22,6 +27,8 @@ define(["jquery", "knockout", "text!./login.html", "knockout-postbox", "messi"],
                 Messi.alert(data.responseJSON.error);
             });
         };
+        
+        this.errors = ko.validation.group(self);
         
         return self;
     }
