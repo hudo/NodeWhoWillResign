@@ -1,0 +1,17 @@
+nav.navbar.navbar-default
+    div.container-fluid
+      div.navbar-header
+        a.navbar-brand(href="/") Who Will Resign
+      div.collapse.navbar-collapse
+        ul.nav.navbar-nav
+          li(data-bind="css: { active: route().page === 'home' }")
+            a(href="#") Home
+        ul.nav.navbar-nav.navbar-right
+          li(data-bind="visible: isUserLogged")
+            label(data-bind="html: 'Hi ' + username() + '&nbsp;&nbsp;&nbsp;&nbsp;|'")
+          li(data-bind="visible: isUserLogged && showLogout()")
+            a(href="#", data-bind="click: Logout") Logout
+          li(data-bind="visible: !isUserLogged(), css: { active: route().page === 'login' }")
+            a(href="#login") Login
+          li(data-bind="visible: !isUserLogged(), css: { active: route().page === 'register' }")
+            a(href="#register") Register

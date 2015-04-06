@@ -20,6 +20,13 @@ define(["jquery", "knockout", "authAndNavigation"], function($, ko, auth){
                self.navigation(new auth("Login"));
             });
         };
+        
+        this.RegisterContent = function(){
+            $.get('https://whowillresign-jd78.c9.io/user/create', function(html){
+               self.content(html);
+               self.navigation(new auth("Register"));
+            });
+        };
     }
     
     var viewModel = new HomeViewModel();

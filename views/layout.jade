@@ -11,21 +11,5 @@ html
   body
     div.top-separator
     div.container
-      nav.navbar.navbar-default
-        div.container-fluid
-          div.navbar-header
-            a.navbar-brand(href="/") Who Will Resign
-          div.collapse.navbar-collapse
-            ul.nav.navbar-nav
-              li(data-bind="css: { 'active': navigation().pageName == 'Home' }")
-                a(href="/") Home
-            ul.nav.navbar-nav.navbar-right
-              li(data-bind="visible: navigation().isUserLogged")
-                label(data-bind="html: 'Hi ' + navigation().username() + '&nbsp;&nbsp;&nbsp;&nbsp;|'")
-              li(data-bind="visible: navigation().isUserLogged && navigation().showLogout()")
-                a(href="#", data-bind="click: navigation().Logout") Logout
-              li(data-bind="visible: !navigation().isUserLogged(), css: { 'active': navigation().pageName == 'Login' }")
-                a(href="#", data-bind="click: LoginContent") Login
-              li(data-bind="visible: !navigation().isUserLogged(), css: { 'active': navigation().pageName == 'Register' }")
-                a(href="/user/create") Register
+      navbar(params="route: route")
       block content

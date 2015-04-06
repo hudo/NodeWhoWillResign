@@ -1,0 +1,13 @@
+script.
+  require(['register']);
+
+div.content(id="registerTemplate")
+  div.center
+    div.form-group.has-success
+      label.control-label Username
+      input.form-control.text-medium(type="text", data-bind="value: username")
+    div.form-group.has-success
+      label.control-label Password
+      input.form-control.text-medium(type="text", data-bind="value: password")
+    button.btn.btn-primary(data-bind="click: Register") Register
+      

@@ -1,12 +1,8 @@
 extends layout
 
 block head
-  //script(data-main="/javascripts/ViewModel/Home/HomeViewModel.js", src='/bower/requirejs/require.js')
-  script(src='/bower/requirejs/require.js')
-  script.
-    require(['viewModel'])
-
+  script(data-main="/javascripts/startup.js", src='/bower/requirejs/require.js')
+  
 block content
-    div(data-bind="html: content")
-    login 
+    div(id="page", data-bind="component: { name: route().page, params: route }")
           

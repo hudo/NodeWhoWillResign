@@ -7,7 +7,7 @@ var configuration = require("../application/configuration")
 var moment = require("moment");
 
 router.get('/create', function(req, res, next) {
-  res.render('create_user');
+  res.render('register');
 });
 
 router.get('/login', function(req, res, next) {
