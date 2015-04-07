@@ -10,3 +10,6 @@ mv views/register.html public/components/register
 
 jade views/navbar.jade
 mv views/navbar.html public/components/navbar
+
+jade views/admin.jade
+mv views/admin.html public/components/admin

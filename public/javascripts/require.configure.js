@@ -14,7 +14,8 @@ var require = {
         "hasher": "bower/hasher/dist/js/hasher",
         "text": "bower/requirejs-text/text",
         "router": "javascripts/router",
-        "configuration": "javascripts/configuration"
+        "configuration": "javascripts/configuration",
+        "employee": "javascripts/ViewModelObjects/EmployeeObject"
     },
     shim: {
         "bootstrap": {

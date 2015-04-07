@@ -1,0 +1,11 @@
+div.center
+    table.table.table-striped
+        thead
+            th Name
+            th Quote
+            th Total Bet
+        tbody(data-bind="foreach: employees")
+            tr
+                td(data-bind="text: name")
+                td(data-bind="text: quote")
+                td(data-bind="text: totalBet")
