@@ -4,6 +4,7 @@ define(["jquery", "knockout", "router", "bootstrap", "knockout-projections", "kn
     ko.components.register("home", { require: "components/home/home" });
     ko.components.register("login", { require: "components/login/login" });
     ko.components.register("register", { require: "components/register/register" });
+    ko.components.register("admin", { require: "components/admin/admin" });
     
     ko.validation.init({
       registerExtenders: true,

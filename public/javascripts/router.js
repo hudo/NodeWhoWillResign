@@ -4,7 +4,8 @@ define(["jquery", "knockout", 'knockout-postbox', "crossroads", "hasher"], funct
         routes: [
             { url: "", params: { page: "home" } }, 
             { url: "login", params: { page: "login" } }, 
-            { url: "register", params: { page: "register" } }
+            { url: "register", params: { page: "register" } },
+            { url: "admin", params: { page: "admin" } }
         ]
     });
 

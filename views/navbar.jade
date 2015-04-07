@@ -6,6 +6,8 @@ nav.navbar.navbar-default
         ul.nav.navbar-nav
           li(data-bind="css: { active: route().page === 'home' }")
             a(href="#") Home
+          li(data-bind="css: { active: route().page === 'admin' }, visible: isAdmin")
+            a(href="#admin") Admin
         ul.nav.navbar-nav.navbar-right
           li(data-bind="visible: isUserLogged")
             label(data-bind="html: 'Hi ' + username() + '&nbsp;&nbsp;&nbsp;&nbsp;|'")

@@ -19,6 +19,7 @@ define(['knockout', 'knockout-postbox', 'text!./navbar.html'], function(ko, post
     this.RefreshNavbar = function(){
       switch (self.route().page) {
         case 'home':
+        case 'admin':  
           self.isUserLogged(window.localStorage.getItem("token") != null && window.localStorage.getItem("token") != "null");
           self.username(window.localStorage.getItem("username"));
           self.token(window.localStorage.getItem("token"));
@@ -44,6 +45,7 @@ define(['knockout', 'knockout-postbox', 'text!./navbar.html'], function(ko, post
       self.username('');
       self.token('');
       self.showLogout(false);
+      self.isAdmin(false);
       window.localStorage.setItem("token", null);
       window.localStorage.setItem("username", null);
       window.localStorage.setItem("token", null);
