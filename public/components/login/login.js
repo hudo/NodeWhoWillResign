@@ -1,4 +1,12 @@
-define(["jquery", "knockout", "text!./login.html", "knockout-postbox", "messi", "knockout-validation"], function($, ko, loginTemplate) {
+define([
+    "jquery", 
+    "knockout", 
+    "text!./login.html",
+    "configuration",
+    "knockout-postbox", 
+    "messi", 
+    "knockout-validation"
+    ], function($, ko, loginTemplate, configuration) {
 
     function loginUserViewModel() {
         var self = this;
@@ -15,7 +23,7 @@ define(["jquery", "knockout", "text!./login.html", "knockout-postbox", "messi", 
                 type: 'POST',
                 data: ko.toJSON(self),
                 contentType: 'application/json',
-                url: 'https://whowillresign-jd78.c9.io/user/login'
+                url: configuration.webApiUrl + 'user/login'
             }).done(function(data){
                 console.log(data);
                 window.localStorage.setItem("token", data.token);

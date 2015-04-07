@@ -13,7 +13,8 @@ var require = {
         "signals": "bower/js-signals/dist/signals",
         "hasher": "bower/hasher/dist/js/hasher",
         "text": "bower/requirejs-text/text",
-        "router": "javascripts/router"
+        "router": "javascripts/router",
+        "configuration": "javascripts/configuration"
     },
     shim: {
         "bootstrap": {

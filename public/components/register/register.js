@@ -1,4 +1,4 @@
-define(["jquery", "knockout", "text!./register.html", "messi"], function($, ko, registerTemplate) {
+define(["jquery", "knockout", "text!./register.html", "configuration", "messi"], function($, ko, registerTemplate, configuration) {
 
     function RegisterUserViewModel() {
         var self = this;
@@ -16,7 +16,7 @@ define(["jquery", "knockout", "text!./register.html", "messi"], function($, ko, 
                 type: 'POST',
                 data: ko.toJSON(self),
                 contentType: 'application/json',
-                url: 'https://whowillresign-jd78.c9.io/user/create'
+                url: configuration.webApiUrl + 'user/create'
             }).done(function(data) {
                 console.log(data);
                 new Messi(data.message, {
