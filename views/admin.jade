@@ -4,8 +4,14 @@ div.center
             th Name
             th Quote
             th Total Bet
+            th
+            th
         tbody(data-bind="foreach: employees")
             tr
                 td(data-bind="text: name")
                 td(data-bind="text: quote")
                 td(data-bind="text: totalBet")
+                td
+                    i.fa.fa-pencil
+                td
+                    i.fa.fa-trash-o

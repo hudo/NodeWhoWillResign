@@ -16,6 +16,7 @@
     "hasher": "~1.2.0",
     "requirejs-text": "~2.0.14",
     "knockout-postbox": "~0.5.0",
-    "knockout-validation": "~2.0.2"
+    "knockout-validation": "~2.0.2",
+    "font-awesome": "~4.3.0"
   }
 }
