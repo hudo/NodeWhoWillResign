@@ -2,11 +2,12 @@ var q = require("q");
 var employeeService = require("../application/employee");
 var userService = require("../application/user");
 var models = require("../models");
+var sequelize = require("../data/orm");
 
 var promises = [];
 
 function employeesSeed(){
-    var employees = ['Lyall', 'Vitali', 'Filippo', 'Radek', 'Paul', 'Gennaro', 'Sean', 'Hudo', 'Bogdan', 'Artur', 'Louise ?', 'Louise H.', 'Denis'];
+    var employees = ['Lyall', 'Vitali', 'Filippo', 'Paul', 'Gennaro', 'Sean', 'Hudo', 'Bogdan', 'Artur', 'Louise ?', 'Louise H.', 'Denis'];
     
     employees.forEach(function(name){
         employeeService().get({where: { name: name } }).then(function(data){
